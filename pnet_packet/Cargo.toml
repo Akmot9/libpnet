@@ -20,9 +20,10 @@ pnet_macros = { path = "../pnet_macros", version = "0.35.0" }
 std = ["pnet_base/std"]
 default = ["std"]
 
+
 [dev-dependencies]
 hex = "0.4.3"
-criterion = { version = "0.5.1", features = ["html_reports"] } #added HTML feature because of the annoying warnings when running the tests
+criterion = { version = "0.5.1", features = ["html_reports"] }
 
 [build-dependencies]
 glob = "0.3.1"
