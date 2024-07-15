@@ -111,7 +111,9 @@ pub mod EtherTypes {
     /// Q-in-Q Vlan Tagging \[IEEE 802.1Q\].
     pub const QinQ: EtherType = EtherType(0x9100);
     /// Process Field Network Protocol (Profinet)
-    pub const Profinet: EtherType = EtherType(0x8892);
+    pub const Profinet_rt: EtherType = EtherType(0x8892);
+    /// Process Media Redundancy Protocol (MRP)
+    pub const Mrp: EtherType = EtherType(0x88e3);
 
 }
 
@@ -159,7 +161,8 @@ impl fmt::Display for EtherType {
             &EtherTypes::Ptp => write!(f, "Ptp"),
             &EtherTypes::Cfm => write!(f, "Cfm"),
             &EtherTypes::QinQ => write!(f, "QinQ"),
-            &EtherTypes::Profinet => write!(f, "Profinet"),
+            &EtherTypes::Profinet_rt => write!(f, "Profinet_rt"),
+            &EtherTypes::Mrp => write!(f, "Mrp"),
             _ => write!(f, "unknown (0x{:04X})", self.0),
         }
     }
@@ -176,6 +179,8 @@ fn ether_type_to_str() {
     let unknown = EtherType(0x0666);
     assert_eq!(format!("{}", unknown), "unknown (0x0666)");
     let profinet = EtherType(0x8892);
-    assert_eq!(format!("{}", profinet), "Profinet");
+    assert_eq!(format!("{}", profinet), "Profinet_rt");
+    let profinet = EtherType(0x88e3);
+    assert_eq!(format!("{}", profinet), "Mrp");
 }
 
