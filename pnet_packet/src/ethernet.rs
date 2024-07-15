@@ -174,7 +174,7 @@ fn ether_type_to_str() {
     let arp = EtherType(0x0806);
     assert_eq!(format!("{}", arp), "Arp");
     let unknown = EtherType(0x0666);
-    assert_eq!(format!("{}", unknown), "unknown");
+    assert_eq!(format!("{}", unknown), "unknown (0x0666)");
     let profinet = EtherType(0x8892);
     assert_eq!(format!("{}", profinet), "Profinet");
 }
